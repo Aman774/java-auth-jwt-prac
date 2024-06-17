@@ -1,0 +1,31 @@
+# application.yml
+server:
+  port: 8081
+
+spring:
+  application:
+    name: space
+
+  space-datasource:
+    url: jdbc:postgresql://${POSTGRES_MASTER:pg-1b82d7be-aman-f808.j.aivencloud.com}:${POSTGRES_PORT:22509}/${POSTGRES_DATABASE_LOS:space}
+    username: ${POSTGRES_USERNAME:avnadmin}
+    password: ${POSTGRES_PASSWORD:AVNS_hdIsFIeN8HlYqUwukIB}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      jdbc:
+        time_zone: IST
+      ddl-auto: update
+    show-sql: true
+
+#  security:
+#    user:
+#      name: aman
+#      password: aman
+
+security:
+  jwt:
+   secret-key: 3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007b
+   expiration-time: 3600000
+  # 1h in millisecond
